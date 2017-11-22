@@ -1,0 +1,27 @@
+<div id="plant-show", class="container">
+
+  <div class="row justify-content-center">
+    <%= link_to "New Plant", new_plant_path, class: "btn btn-lg btn-outline-secondary", method: :post, remote: true %>
+  </div>
+
+  <div class="message">
+    <div id="action">
+    </div>
+    <div id="status">
+      <%= render "plant/status" %>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-4">
+      <%= link_to "Water", water_plant_path, class: "btn btn-outline-primary", method: :post, remote: true %>
+    </div>
+    <div class="col-4">
+      <%= link_to "Sun Lamp", sun_plant_path, class: "btn btn-outline-warning", method: :post, remote: true %>
+    </div>
+    <div class="col-4">
+      <%= link_to "Fertilize", fertilize_plant_path, class: "btn btn-outline-success", method: :post, remote: true %>
+    </div>
+  </div>
+
+</div>
