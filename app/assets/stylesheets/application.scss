@@ -13,3 +13,22 @@
 
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
+
+#plant-show {
+
+  .btn {
+    width: 100%;
+  }
+
+  .btn:hover {
+    cursor: pointer;
+  }
+
+  .message {
+    text-align: center;
+  }
+
+  p {
+    margin: 1rem;
+  }
+}
