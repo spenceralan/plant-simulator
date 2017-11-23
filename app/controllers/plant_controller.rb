@@ -1,13 +1,22 @@
 class PlantController < ApplicationController
+
+  def show
+    @plant = Plant.find_or_create_by(id: session[:plant_id])
+  end
+
   def new
+    @plant = Plant.create
+    session[:plant_id] = @plant.id
     respond_to do |format|
       format.js {
-        flash[:action] = "You started over! The plant is a new!"
+        flash[:action] = "You started over! The plant is new!"
       }
     end
   end
 
   def water
+    @plant = Plant.find_by(id: session[:plant_id])
+    @plant.water
     respond_to do |format|
       format.js {
         flash[:action] = "You watered the plant!"
@@ -16,6 +25,8 @@ class PlantController < ApplicationController
   end
 
   def sun
+    @plant = Plant.find_by(id: session[:plant_id])
+    @plant.sun
     respond_to do |format|
       format.js {
         flash[:action] = "You gave the plant some light!"
@@ -24,6 +35,8 @@ class PlantController < ApplicationController
   end
 
   def fertilize
+    @plant = Plant.find_by(id: session[:plant_id])
+    @plant.fertilize
     respond_to do |format|
       format.js {
         flash[:action] = "You fertilized the plant!"
