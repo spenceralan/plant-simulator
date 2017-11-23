@@ -2,6 +2,7 @@ class PlantController < ApplicationController
 
   def show
     @plant = Plant.find_or_create_by(id: session[:plant_id])
+    session[:plant_id] = @plant.id
   end
 
   def new
