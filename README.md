@@ -5,8 +5,8 @@
 Web browser with ES6 compatibility
 Examples: Chrome, Safari
 
-Ruby 2.4.1
-Bundler
+ - Ruby 2.4.1
+ - Bundler
 
 ### Installing
 
