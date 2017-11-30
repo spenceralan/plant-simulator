@@ -2,8 +2,8 @@ class Plant < ApplicationRecord
   before_save :define_status
 
   def message
-    return "Your plant is dead! Why did you kill your plant?! YOU MURDERER" unless self.alive?
     return "You win! Your plant is 10 inches tall!" if height >= 10
+    return "Your plant is dead! Why did you kill your plant?! YOU MURDERER" unless self.alive?
     "Your plant is #{height} #{"inch".pluralize(height)} tall!"
   end
 

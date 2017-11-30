@@ -1,13 +1,17 @@
 class PlantController < ApplicationController
 
   def show
+    session[:plant_history] = [] if session[:plant_history].nil?
     @plant = Plant.find_or_create_by(id: session[:plant_id])
     session[:plant_id] = @plant.id
+    @ids = session[:plant_history]
   end
 
   def new
     @plant = Plant.create
     session[:plant_id] = @plant.id
+    session[:plant_history].unshift(session[:plant_id])
+    @ids = session[:plant_history]
     respond_to do |format|
       format.js {
         flash[:action] = "You started over! The plant is new!"
